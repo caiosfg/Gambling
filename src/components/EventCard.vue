@@ -1,9 +1,9 @@
 <template>
-<div class="event-card">
- <!-- Display the games -->
-  <span>@ {{ event.time }} em {{ event.date }}</span>
-  <h4>{{ event.title }}</h4>
-</div>
+  <div class="event-card" v-for="(even, index) in event.articles" :key="index">
+    <span>@{{ even.author }} em {{ even.publishedAt }}</span>
+    <h4>{{ even.title }}</h4>
+    <p>{{ even.description }}</p>
+  </div>
 </template>
 
 <script>
@@ -12,10 +12,8 @@ export default {
   props: {
     event: Object,
   }
-}
-
+};
 </script>
-
 
 <style scoped>
   .event-card{
